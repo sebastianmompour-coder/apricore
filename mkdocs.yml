@@ -1,0 +1,40 @@
+site_name: APRICORE
+site_description: A requirements-analysis discipline — Analyze, Prioritize, Communicate, Realize.
+repo_url: https://github.com/sebastianmompour-coder/apricore
+repo_name: sebastianmompour-coder/apricore
+docs_dir: docs
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - The Framework: spec/01-framework.md
+  - Phases:
+      - Analyze: spec/02-analyze.md
+      - Prioritize: spec/03-prioritize.md
+      - Communicate: spec/04-communicate.md
+      - Realize: spec/05-realize.md
+  - Disciplines: spec/06-disciplines.md
+  - Output Schema: spec/07-output-schema.md
+  - Prompt Library: prompts/prompt-library.md
+  - Examples:
+      - Vague ticket: examples/example-1-vague-ticket.md
+      - Stakeholder statement: examples/example-2-stakeholder.md
