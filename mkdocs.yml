@@ -1,5 +1,6 @@
 site_name: APRICORE
 site_description: A requirements-analysis discipline — Analyze, Prioritize, Communicate, Realize.
+site_url: https://sebastianmompour-coder.github.io/apricore/
 repo_url: https://github.com/sebastianmompour-coder/apricore
 repo_name: sebastianmompour-coder/apricore
 docs_dir: docs
