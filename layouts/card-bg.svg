@@ -1,0 +1,17 @@
+<!--
+  Source for the social-card background (docs/assets/card-bg.png).
+  Shapes only (no text), so it rasterizes identically on any machine.
+  Mirrors the site banner: dark diagonal gradient + faint orange accent circle.
+  Regenerate the PNG with:
+    .venv/bin/python -c "import cairosvg; cairosvg.svg2png(url='layouts/card-bg.svg', write_to='docs/assets/card-bg.png', output_width=1200, output_height=630)"
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="apricore-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b1d23"/>
+      <stop offset="100%" stop-color="#2b2f3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#apricore-bg)"/>
+  <circle cx="1130" cy="70" r="320" fill="#F34A23" opacity="0.22"/>
+</svg>

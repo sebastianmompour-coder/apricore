@@ -1,0 +1,107 @@
+# Custom social-card layout for APRICORE.
+# Reproduces the site banner: dark gradient + orange accent circle (baked into
+# docs/assets/card-bg.png), the APRICORE wordmark with an orange accent bar, and
+# the per-page title + description. Text uses Roboto (managed by the plugin) so
+# cards render identically locally and in CI.
+#
+# Meta text (og:/twitter:) and visual card text are kept separate: meta tags
+# always carry the real title/description (for SEO/sharing previews), while the
+# visible card uses short, on-brand copy that fits the layout cleanly.
+
+definitions:
+  # Wordmark / site name
+  - &site_name >-
+    {{ config.site_name }}
+
+  # --- Meta text (drives og:/twitter: tags) — always the real values ---
+  - &meta_title >-
+    {%- if not page.is_homepage -%}
+      {{ page.meta.get("title", page.title) }} - {{ config.site_name }}
+    {%- else -%}
+      {{ config.site_name }}
+    {%- endif -%}
+
+  - &meta_description >-
+    {{ page.meta.get("description", config.site_description) | x }}
+
+  # --- Visual card text ---
+  # Hero: the page title; on the homepage, the method line instead of "Home".
+  - &card_title >-
+    {%- if page.is_homepage -%}
+      Analyze · Prioritize · Communicate · Realize
+    {%- else -%}
+      {{ page.meta.get("title", page.title) }}
+    {%- endif -%}
+
+  # Sub-line: the page's own description, else a short brand line.
+  - &card_description >-
+    {%- if page.is_homepage -%}
+      A requirements-analysis discipline for decision-ready work items.
+    {%- else -%}
+      {{ page.meta.get("description", "A requirements-analysis discipline — Analyze, Prioritize, Communicate, Realize.") }}
+    {%- endif -%}
+
+# Meta tags
+tags:
+  og:type: website
+  og:title: *meta_title
+  og:description: *meta_description
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+
+  twitter:card: summary_large_image
+  twitter:title: *meta_title
+  twitter:description: *meta_description
+  twitter:image: "{{ image.url }}"
+
+# Card composition
+size: { width: 1200, height: 630 }
+layers:
+  # Background: baked gradient + accent circle. No color is set here on purpose —
+  # the plugin paints background.color *over* the image (it is meant as a tint),
+  # and the image already covers the full 1200x630 canvas.
+  - background:
+      image: "{{ config.docs_dir }}/assets/card-bg.png"
+
+  # Orange accent bar beneath the wordmark
+  - size: { width: 120, height: 6 }
+    offset: { x: 64, y: 124 }
+    background:
+      color: "#F34A23"
+
+  # Wordmark
+  - size: { width: 900, height: 48 }
+    offset: { x: 64, y: 68 }
+    typography:
+      content: *site_name
+      color: "#ffffff"
+      font:
+        family: Roboto
+        style: Bold
+
+  # Hero title
+  - size: { width: 1010, height: 286 }
+    offset: { x: 62, y: 180 }
+    typography:
+      content: *card_title
+      align: start
+      color: "#ffffff"
+      line: { amount: 3, height: 1.2 }
+      font:
+        family: Roboto
+        style: Bold
+
+  # Description
+  - size: { width: 1010, height: 96 }
+    offset: { x: 64, y: 496 }
+    typography:
+      content: *card_description
+      align: start
+      color: "#c4c8d4"
+      line: { amount: 2, height: 1.4 }
+      font:
+        family: Roboto
+        style: Regular

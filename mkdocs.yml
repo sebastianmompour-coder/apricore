@@ -40,6 +40,8 @@ plugins:
   # Card colors are derived from the theme palette (black background, deep orange accent).
   - social:
       cards: !ENV [CI, false]
+      cards_layout_dir: layouts
+      cards_layout: apricore
   - privacy
 extra:
   analytics:
