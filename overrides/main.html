@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{#- Richer <title> for SEO: the homepage gets a descriptive title;
+    sub-pages keep the standard "Page – APRICORE" pattern. -#}
+{% block htmltitle %}
+  {%- if page.is_homepage -%}
+    <title>APRICORE — A requirements-analysis discipline</title>
+  {%- elif page.meta and page.meta.title -%}
+    <title>{{ page.meta.title | striptags }} – {{ config.site_name }}</title>
+  {%- elif page.title -%}
+    <title>{{ page.title | striptags }} – {{ config.site_name }}</title>
+  {%- else -%}
+    <title>{{ config.site_name }}</title>
+  {%- endif -%}
+{% endblock %}
+
+{% block extrahead %}
+  <meta name="google-site-verification" content="yoyG2LLVm6_6fQ96gbkBiDREOOw-9p7CWaf71nh6sVQ">
+  <meta name="author" content="Sebastian Mompour">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="requirements analysis, requirements engineering, ticket analysis, APRICORE, decision-ready analysis, software requirements, product requirements">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "APRICORE",
+    "alternateName": "APRICORE — Analyze, Prioritize, Communicate, Realize",
+    "url": "https://sebastianmompour-coder.github.io/apricore/",
+    "description": "A requirements-analysis discipline that turns vague, biased, or symptom-laden work items into decision-ready analyses.",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Person",
+      "name": "Sebastian Mompour",
+      "url": "https://www.sebastian-mompour.de",
+      "sameAs": [
+        "https://www.sebastian-mompour.de",
+        "https://github.com/sebastianmompour-coder"
+      ]
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sebastian Mompour",
+      "url": "https://www.sebastian-mompour.de"
+    }
+  }
+  </script>
+{% endblock %}
