@@ -1,0 +1,23 @@
+name: Documentation issue
+description: Report a typo, broken link, unclear wording, or other docs problem (no method change).
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Where?
+      description: Page URL or file path (e.g. docs/spec/03-prioritize.md).
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix (optional)
+    validations:
+      required: false
