@@ -1,0 +1,3 @@
+# Documentation build dependencies (shared by CI and deploy workflows).
+# The [imaging] extra pulls in Pillow + CairoSVG, required by the social-cards plugin.
+mkdocs-material[imaging]

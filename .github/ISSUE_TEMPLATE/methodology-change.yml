@@ -1,0 +1,38 @@
+name: Methodology change proposal
+description: Propose a change to the APRICORE method itself (phases, disciplines, output schema).
+labels: ["methodology"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Methodology changes ripple across the spec, prompts, and examples.
+        Per [CONTRIBUTING](../blob/main/CONTRIBUTING.md), please open this issue to
+        discuss **before** sending a pull request.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem with the current method are you addressing?
+      description: Describe the gap, ambiguity, or failure mode — not just the fix you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change, concretely?
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Which spec files are affected?
+      description: e.g. docs/spec/02-analyze.md, docs/spec/07-output-schema.md
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or reasoning
+      description: A worked example, citation, or argument that supports the change.
+    validations:
+      required: false

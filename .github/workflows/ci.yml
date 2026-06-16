@@ -1,46 +1,40 @@
-name: Deploy docs site
+name: CI
 on:
-  push:
-    branches: [main]
+  pull_request:
+
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: false
+
 jobs:
-  build:
+  validate:
+    name: Validate docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Guard against internal/personal references
+        run: ./scripts/check-spec.sh
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ github.sha }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - name: Guard against internal/personal references
-        run: ./scripts/check-spec.sh
+
       - name: Install image-processing system libraries (social cards)
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+
       - run: pip install -r requirements.txt
-      - run: mkdocs build --strict
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+
+      # CI is set to "true" by GitHub Actions, so social cards are generated here,
+      # which also validates the social plugin configuration. --strict fails the
+      # build on broken internal links or nav inconsistencies.
+      - name: Strict build
+        run: mkdocs build --strict

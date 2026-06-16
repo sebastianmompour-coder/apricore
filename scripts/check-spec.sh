@@ -4,16 +4,25 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-INTERNAL='Sebastian|Mompour|/Users/'
 PATHS=(docs README.md)
+# Legal pages must carry the maintainer's real name by law (imprint/privacy),
+# so the name check skips them. Internal filesystem paths stay forbidden everywhere.
+LEGAL_EXCLUDE=(--exclude=imprint.md --exclude=privacy.md)
 
-echo "== hard check: no internal references =="
-if grep -rniE "$INTERNAL" "${PATHS[@]}"; then
-    echo "FAIL: internal reference found above"
+echo "== hard check: no internal filesystem paths =="
+if grep -rniE '/Users/' "${PATHS[@]}"; then
+    echo "FAIL: internal path found above"
+    exit 1
+fi
+echo "OK"
+
+echo "== hard check: no personal references (legal pages excluded) =="
+if grep -rniE 'Sebastian|Mompour' "${LEGAL_EXCLUDE[@]}" "${PATHS[@]}"; then
+    echo "FAIL: personal reference found above"
     exit 1
 fi
 echo "OK"
 
 echo "== soft check: possible German residue (review manually) =="
-grep -rnE '[äöüßÄÖÜ]|\b(und|oder|nicht|wird|werden|Anforderung|Sektion|Massnahme|Verzerrung)\b' "${PATHS[@]}" || true
+grep -rnIE '[äöüßÄÖÜ]|\b(und|oder|nicht|wird|werden|Anforderung|Sektion|Massnahme|Verzerrung)\b' "${PATHS[@]}" || true
 echo "(any hits above are candidates for manual review, not a hard fail)"

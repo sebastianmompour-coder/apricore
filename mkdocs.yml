@@ -35,6 +35,11 @@ extra_css:
   - stylesheets/brand.css
 plugins:
   - search
+  # Social cards (Open Graph / Twitter preview images) are generated in CI only,
+  # where image-processing libraries are installed; local builds skip them for speed.
+  # Card colors are derived from the theme palette (black background, deep orange accent).
+  - social:
+      cards: !ENV [CI, false]
   - privacy
 extra:
   analytics:
