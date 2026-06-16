@@ -9,6 +9,8 @@ backward-incompatible ways between minor versions.
 
 ## [Unreleased]
 
+## [0.1.4] - 2026-06-16
+
 ### Added
 
 - `requirements.txt` for reproducible documentation builds.
@@ -17,6 +19,8 @@ backward-incompatible ways between minor versions.
 - Scheduled external link checking (lychee) that opens a tracking issue when a
   link breaks — deliberately decoupled from the merge gate.
 - Social cards (Open Graph / Twitter preview images), generated in CI.
+- Branded social cards: a custom layout mirroring the site banner (gradient and
+  accent circle, the APRICORE wordmark, and per-page title and description).
 - Issue forms (methodology change, documentation issue) and a pull-request
   template.
 - `SECURITY.md` describing how to report security or privacy issues responsibly.
@@ -67,7 +71,8 @@ backward-incompatible ways between minor versions.
 - MkDocs Material documentation site with a GitHub Pages deployment workflow.
 - Repo-hygiene guard against leaked internal references.
 
-[Unreleased]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.3...HEAD
+[Unreleased]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.4...HEAD
+[0.1.4]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/sebastianmompour-coder/apricore/compare/v0.1.0...v0.1.1
