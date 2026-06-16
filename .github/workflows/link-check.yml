@@ -1,0 +1,42 @@
+name: Link check
+# External link checking runs on a schedule (and on demand), deliberately
+# decoupled from the PR gate: external sites rate-limit or flake, and that
+# should never block a merge. Broken links are reported as a tracking issue.
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links with lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --exclude-mail
+            'docs/**/*.md'
+            'README.md'
+            'CONTRIBUTING.md'
+            'CODE_OF_CONDUCT.md'
+            'CHANGELOG.md'
+            'SECURITY.md'
+          fail: false
+
+      - name: Open an issue if links are broken
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links detected by lychee
+          content-filepath: ./lychee/out.md
