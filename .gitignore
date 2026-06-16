@@ -1,2 +1,6 @@
 planning/
 site/
+.venv/
+.cache/
+.playwright-mcp/
+apricore-*.png

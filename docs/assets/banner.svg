@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="APRICORE — a requirements-analysis discipline: Analyze, Prioritize, Communicate, Realize">
+  <defs>
+    <linearGradient id="apricore-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b1d23"/>
+      <stop offset="100%" stop-color="#2b2f3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="16" fill="url(#apricore-bg)"/>
+  <circle cx="1080" cy="40" r="180" fill="#F34A23" opacity="0.08"/>
+  <text x="600" y="128" text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-weight="800" font-size="84" letter-spacing="7" fill="#ffffff">APRICORE</text>
+  <rect x="556" y="150" width="88" height="4" rx="2" fill="#F34A23"/>
+  <text x="600" y="200" text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-weight="400" font-size="25" fill="#c4c8d4">A requirements-analysis discipline</text>
+  <text x="600" y="252" text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-weight="600" font-size="26" fill="#e8eaf0">Analyze<tspan fill="#FF6B3D">&#160;&#8594;&#160;</tspan>Prioritize<tspan fill="#FF6B3D">&#160;&#8594;&#160;</tspan>Communicate<tspan fill="#FF6B3D">&#160;&#8594;&#160;</tspan>Realize</text>
+</svg>

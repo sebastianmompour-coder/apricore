@@ -1,3 +1,5 @@
+![APRICORE — Analyze, Prioritize, Communicate, Realize](assets/banner.svg)
+
 # APRICORE
 
 APRICORE is a requirements-analysis discipline that turns vague, biased, or symptom-laden work items into decision-ready analyses. It guides practitioners through four phases applied in sequence — **Analyze**, **Prioritize**, **Communicate**, **Realize** — with designed feedback loops between them.

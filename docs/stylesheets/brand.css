@@ -1,0 +1,57 @@
+/* ===== APRICORE brand — matched to the {SM} logo orange (#F34A23) ===== */
+
+/* Header logo larger than the default */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
+}
+
+/* Light scheme: brand orange darkened to clear WCAG AA on white (>= 4.5:1).
+   Target the scheme, NOT :root — Material re-sets these per color scheme,
+   which would otherwise win over a :root override. */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #D43A12;   /* 4.76:1 on white */
+  --md-accent-fg-color: #9A2F08;   /* hover: darker, 7.5:1 */
+}
+
+/* Dark (slate) scheme: lighter orange for contrast on the dark background */
+[data-md-color-scheme="slate"] {
+  --md-typeset-a-color: #FF8A5B;   /* ~6.9:1 on slate */
+  --md-accent-fg-color: #FFA177;   /* hover: brighter, legible on dark */
+}
+
+/* Primary buttons (incl. cookie-consent actions) in brand orange, not indigo.
+   White text on #C2410C clears AA (5.2:1). */
+.md-button--primary {
+  background-color: #C2410C;
+  border-color: #C2410C;
+  color: #fff;
+}
+.md-button--primary:hover,
+.md-button--primary:focus {
+  background-color: #9A2F08;
+  border-color: #9A2F08;
+  color: #fff;
+}
+
+/* Title banner: full content width, rounded, compact */
+.md-typeset img[src$="banner.svg"] {
+  width: 100%;
+  border-radius: 12px;
+  margin: 0 0 1.4rem;
+}
+
+/* Home page: hide the redundant H1 (the banner already shows the wordmark),
+   but keep it in the DOM for screen readers and SEO. */
+.md-typeset p:has(> img[src$="banner.svg"]) + h1 {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
