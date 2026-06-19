@@ -46,7 +46,7 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-CJH4EWRD8H
+    property: G-SDSB8YHS7M
   consent:
     title: Cookie consent
     description: >-
