@@ -1,3 +1,7 @@
+---
+robots: noindex, nofollow
+---
+
 # Privacy Policy
 
 Last updated: June 2026
@@ -72,6 +76,6 @@ changes.
 
 ---
 
-*This privacy policy is a carefully prepared template, not legal advice. Please
+_This privacy policy is a carefully prepared template, not legal advice. Please
 review it (or have it reviewed) for completeness and accuracy for your specific
-case before publishing.*
+case before publishing._
