@@ -1,3 +1,7 @@
+---
+robots: noindex, nofollow
+---
+
 # Legal Notice
 
 Information pursuant to § 5 DDG (German Digital Services Act).
@@ -13,7 +17,7 @@ Germany
 ## Contact
 
 Phone: +49 2226 8989097
-Email: info@sebastian-mompour.de
+Email: <info@sebastian-mompour.de>
 
 ## Responsible for content pursuant to § 18 (2) MStV
 
