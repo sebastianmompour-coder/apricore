@@ -22,6 +22,10 @@ Additional reference:
 
 ---
 
+> **About this project:** APRICORE is a free, open discipline — no certificates, no commercial binding, and not affiliated with any other provider using this name. Methodology texts are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); code and tooling under [MIT](https://github.com/sebastianmompour-coder/apricore/blob/main/LICENSE).
+
+---
+
 ## How to apply
 
 **With an LLM:** Paste the relevant prompts from the [prompt library](prompts/prompt-library.md) alongside your input ticket or requirement. The templates walk any instruction-following model through the four phases.
