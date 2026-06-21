@@ -46,4 +46,7 @@ Additional specification files:
 
 ## License
 
-[MIT](./LICENSE)
+- **Methodology texts** (`docs/`) — [CC BY 4.0](./LICENSE-docs). Share and adapt for any purpose, with attribution.
+- **Code, tooling, and configuration** — [MIT](./LICENSE).
+
+APRICORE is a free, open discipline — no certificates, no commercial binding, and not affiliated with any other provider using this name.
