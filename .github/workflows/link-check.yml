@@ -25,7 +25,6 @@ jobs:
           args: >-
             --no-progress
             --max-retries 3
-            --exclude-mail
             'docs/**/*.md'
             'README.md'
             'CONTRIBUTING.md'
