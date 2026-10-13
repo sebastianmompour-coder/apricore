@@ -66,8 +66,9 @@ cause addressable without first measuring where the time is spent?**
 dashboard loads slowly.
 
 **Symptom:** Users experience unacceptable wait times when navigating to or interacting
-with the reporting dashboard. The support team's ticket queue confirms this is a
-recurring pattern rather than an isolated event.
+with the reporting dashboard. According to the ticket, the support team keeps receiving
+these reports, which points to a recurring pattern rather than an isolated event. The
+queue itself has not been checked yet.
 
 **Possible causes (as hypotheses — none confirmed without profiling data):**
 
@@ -97,7 +98,7 @@ Certainty is reduced accordingly — confirmed cause identification requires pro
 | Claim | Label |
 |---|---|
 | Users report the dashboard is slow | Anecdotal (multiple reports via support tickets — pattern, not measurement) |
-| Support team receives repeated tickets on this issue | Confirmed (stated directly in ticket) |
+| Support team receives repeated tickets on this issue | Anecdotal (stated by ticket author; the support queue has not been checked — a look at it would confirm or refute the claim) |
 | The problem has existed for an extended period | Anecdotal (stated by ticket author; no timestamps given) |
 | Caching will resolve the slowness | Unsubstantiated (no profiling data links slowness to a cache-addressable bottleneck) |
 | Unindexed queries are the cause | Possible (structurally plausible, no evidence) |
